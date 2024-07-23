@@ -2,20 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create user page</title>
+    <title>Create owner page</title>
 </head>
 <body>
-<form name="user" action="/addUser" method="post">
+<form name="owner" action="/addUser" method="post">
     <p>Id</p>
     <input title="Id" type="text" name="id">
     <p>Name</p>
     <input title="Name" type="text" name="name">
+    <p>Surname</p>
+    <input title="Surname" type="text" name="surname">
     <p>Email</p>
     <input title="Email" type="text" name="email">
-    <p>Age</p>
-    <input title="Age" type="text" name="age">
+    <p>Telephone number</p>
+    <input title="Telephone number" type="text" name="telnumber">
     <br>
-    <input type="submit" value="Add user">
+    <input type="submit" value="Add owner">
 </form>
 </body>
 </html>

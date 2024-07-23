@@ -5,23 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-<h1>User info page</h1>
+<h1>Owners info page</h1>
 <table>
     <tr>
         <td>Id</td>
-        <td>${user.id}</td>
+        <td>${owner.id}</td>
     </tr>
     <tr>
         <td>Name</td>
-        <td>${user.name}</td>
+        <td>${owner.name}</td>
+    </tr>
+    <tr>
+        <td>Surname</td>
+        <td>${owner.surname}</td>
     </tr>
     <tr>
         <td>Email</td>
-        <td>${user.email}</td>
+        <td>${owner.email}</td>
     </tr>
     <tr>
-        <td>Age</td>
-        <td>${user.age}</td>
+        <td>Telephone number</td>
+        <td>${owner.telnumber}</td>
     </tr>
 </table>
 <br>

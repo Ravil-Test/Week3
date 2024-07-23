@@ -1,18 +1,18 @@
 package ru.nurullin.service;
 
-import ru.nurullin.entity.User;
+import ru.nurullin.entity.Owner;
 
 import java.util.List;
 
 public interface UserService {
 
-    List<User> findAll();
+    List<Owner> findAll();
 
-    void save(User user);
+    void save(Owner owner);
 
     void delete(int id);
 
-    void update(User user);
+    void update(Owner owner);
 
-    User getById(int id);
+    Owner getById(int id);
 }

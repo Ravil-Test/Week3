@@ -5,8 +5,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import ru.nurullin.DAO.UserDao;
-import ru.nurullin.DAO.UserDaoImp;
+import ru.nurullin.DAO.OwnerDao;
+import ru.nurullin.DAO.OwnerDaoImp;
 import ru.nurullin.service.UserService;
 import ru.nurullin.service.UserServiceImp;
 
@@ -32,8 +32,8 @@ public class SpringConfig {
     }
 
     @Bean
-    public UserDao getUserDao() {
-        return new UserDaoImp(getJdbcTemplate());
+    public OwnerDao getUserDao() {
+        return new OwnerDaoImp(getJdbcTemplate());
     }
 
     @Bean

@@ -5,27 +5,29 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Users list</h1>
+    <h1>Owners list</h1>
 <table>
     <tr>
         <th>Id</th>
         <th>Name</th>
+        <th>Surname</th>
         <th>Email</th>
-        <th>Age</th>
+        <th>Telephone Number</th>
     </tr>
-<#list users as user>
+<#list owners as owner>
     <tr>
-        <th><a href="/user/${user.id}">${user.id}</a></th>
-        <th>${user.name}</th>
-        <th>${user.email}</th>
-        <th>${user.age}</th>
-        <th><a href="/delete/${user.id}">DELETE</a></th>
-        <th><a href="/update/${user.id}">UPDATE</a></th>
+        <th><a href="/user/${owner.id}">${owner.id}</a></th>
+        <th>${owner.name}</th>
+        <th>${owner.surname}</th>
+        <th>${owner.email}</th>
+        <th>${owner.telnumber}</th>
+        <th><a href="/delete/${owner.id}">DELETE</a></th>
+        <th><a href="/update/${owner.id}">UPDATE</a></th>
     </tr>
 </#list>
 </table>
 <form>
-    <input type="button" onclick="document.location='http://localhost:8080/addUser'" value="Add new user"/>
+    <input type="button" onclick="document.location='http://localhost:8080/addUser'" value="Add new owner"/>
 </form>
 </body>
 </html>

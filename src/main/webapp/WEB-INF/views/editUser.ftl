@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create user page</title>
+    <title>Create owner page</title>
 </head>
 <body>
-<form name="user" action="/updateUser" method="post">
+<form name="owner" action="/updateUser" method="post">
     <p>Id</p>
-    <input title="Id" type="text" name="id" value="${user.id}">
+    <input title="Id" type="text" name="id" value="${owner.id}">
     <p>Name</p>
-    <input title="Name" type="text" name="name" value="${user.name}">
+    <input title="Name" type="text" name="name" value="${owner.name}">
+    <p>Surname</p>
+    <input title="Surname" type="text" name="surname" value="${owner.surname}">
     <p>Email</p>
-    <input title="Email" type="text" name="email" value="${user.email}">
-    <p>Age</p>
-    <input title="Age" type="text" name="age" value="${user.age}">
+    <input title="Email" type="text" name="email" value="${owner.email}">
+    <p>Telephone number</p>
+    <input title="Telephone number" type="text" name="telnumber" value="${owner.telnumber}">
     <br>
     <input type="submit" value="Ok">
 </form>

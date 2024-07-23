@@ -1,12 +1,14 @@
 package ru.nurullin.controller;
 
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.nurullin.entity.User;
+import ru.nurullin.entity.Owner;
 import ru.nurullin.service.UserService;
 
 @Controller
@@ -29,13 +31,13 @@ public class UserController {
 
     @GetMapping("/users")
     public String getAllUsers(Model model) {
-        model.addAttribute("users", userService.findAll());
+        model.addAttribute("owners", userService.findAll());
         return "usersList";
     }
 
     @GetMapping("/user/{id}")
     public String getById(@PathVariable("id") int id, Model model) {
-        model.addAttribute("user", userService.getById(id));
+        model.addAttribute("owner", userService.getById(id));
         return "showUser";
     }
 
@@ -52,20 +54,27 @@ public class UserController {
 
     @GetMapping("/update/{id}")
     public String update(@PathVariable("id") int id, Model model) {
-        model.addAttribute("user", userService.getById(id));
+        model.addAttribute("owner", userService.getById(id));
         return "editUser";
     }
 
     @PostMapping("/addUser")
-    public String addUser(@ModelAttribute("user") User user) {
-        userService.save(user);
+    public String addUser(@Valid @ModelAttribute("owner") Owner owner,
+                          BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "createUser";
+
+        userService.save(owner);
         return "redirect:/users";
     }
 
     @PostMapping("/updateUser")
-    public String updateUser(@ModelAttribute("user") User user) {
-        userService.update(user);
-        return "redirect:/user/" + user.getId();
-    }
+    public String updateUser(@Valid @ModelAttribute("owner") Owner owner,
+                             BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "editUser";
 
+        userService.update(owner);
+        return "redirect:/user/" + owner.getId();
+    }
 }
