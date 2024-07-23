@@ -5,10 +5,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import ru.nurullin.DAO.UserDao;
-import ru.nurullin.DAO.UserDaoImp;
-import ru.nurullin.service.UserService;
-import ru.nurullin.service.UserServiceImp;
+import ru.nurullin.DAO.SupplierDao;
+import ru.nurullin.DAO.SupplierDaoImp;
+import ru.nurullin.service.SupplierService;
+import ru.nurullin.service.SupplierServiceImp;
 
 import javax.sql.DataSource;
 
@@ -32,12 +32,12 @@ public class SpringConfig {
     }
 
     @Bean
-    public UserDao getUserDao() {
-        return new UserDaoImp(getJdbcTemplate());
+    public SupplierDao getUserDao() {
+        return new SupplierDaoImp(getJdbcTemplate());
     }
 
     @Bean
-    public UserService getUserService() {
-        return new UserServiceImp();
+    public SupplierService getUserService() {
+        return new SupplierServiceImp();
     }
 }

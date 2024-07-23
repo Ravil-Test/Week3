@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.nurullin.entity.User;
-import ru.nurullin.service.UserService;
+import ru.nurullin.entity.Supplier;
+import ru.nurullin.service.SupplierService;
 
 @Controller
 @RequestMapping("/")
-public class UserController {
+public class SupplierController {
 
     @Qualifier("getUserService")
     @Autowired
-    public UserService userService;
+    public SupplierService supplierService;
 
     @GetMapping("/")
     public String index() {
@@ -29,43 +29,43 @@ public class UserController {
 
     @GetMapping("/users")
     public String getAllUsers(Model model) {
-        model.addAttribute("users", userService.findAll());
-        return "usersList";
+        model.addAttribute("suppliers", supplierService.findAll());
+        return "supplierList";
     }
 
     @GetMapping("/user/{id}")
     public String getById(@PathVariable("id") int id, Model model) {
-        model.addAttribute("user", userService.getById(id));
-        return "showUser";
+        model.addAttribute("supplier", supplierService.getById(id));
+        return "showSupplier";
     }
 
     @GetMapping("/addUser")
     public String createUser() {
-        return "createUser";
+        return "createSupplier";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") int id) {
-        userService.delete(id);
+        supplierService.delete(id);
         return "redirect:/users";
     }
 
     @GetMapping("/update/{id}")
     public String update(@PathVariable("id") int id, Model model) {
-        model.addAttribute("user", userService.getById(id));
-        return "editUser";
+        model.addAttribute("supplier", supplierService.getById(id));
+        return "editSupplier";
     }
 
     @PostMapping("/addUser")
-    public String addUser(@ModelAttribute("user") User user) {
-        userService.save(user);
+    public String addUser(@ModelAttribute("supplier") Supplier supplier) {
+        supplierService.save(supplier);
         return "redirect:/users";
     }
 
     @PostMapping("/updateUser")
-    public String updateUser(@ModelAttribute("user") User user) {
-        userService.update(user);
-        return "redirect:/user/" + user.getId();
+    public String updateUser(@ModelAttribute("supplier") Supplier supplier) {
+        supplierService.update(supplier);
+        return "redirect:/user/" + supplier.getId();
     }
 
 }

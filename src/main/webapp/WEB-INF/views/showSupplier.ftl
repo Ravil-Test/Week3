@@ -5,23 +5,19 @@
     <title>Title</title>
 </head>
 <body>
-<h1>User info page</h1>
+<h1>Supplier info page</h1>
 <table>
     <tr>
         <td>Id</td>
-        <td>${user.id}</td>
+        <td>${supplier.id}</td>
     </tr>
     <tr>
-        <td>Name</td>
-        <td>${user.name}</td>
+        <td>Organization name</td>
+        <td>${supplier.orgname}</td>
     </tr>
     <tr>
-        <td>Email</td>
-        <td>${user.email}</td>
-    </tr>
-    <tr>
-        <td>Age</td>
-        <td>${user.age}</td>
+        <td>Organization address</td>
+        <td>${supplier.address}</td>
     </tr>
 </table>
 <br>
