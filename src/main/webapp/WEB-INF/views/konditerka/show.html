@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+<p th:text="${'Изделие: ' + izdelie.getName() + ', цена: ' + izdelie.getPrice()}">VALUE</p>
+<p th:text="${'Calories: ' + izdelie.getCalories()}">VALUE</p>
+<p th:text="${'Поставщик: ' + izdelie.getSupplier()}">VALUE</p>
+<p th:text="${'Состав' + izdelie.getContent()}">VALUE</p>
+<br/>
+<a th:href="@{/konditerka/{id}/edit(id=${izdelie.getId()})}">Edit</a>
+<br/>
+<form th:method="DELETE" th:action="@{/konditerka/{id}(id=${izdelie.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+<br/>
+<a href="/konditerka">Back to konditerka list</a>
+</body>
+</html>

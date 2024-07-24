@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New izdelie</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/konditerka}" th:object="${izdelie}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    <br/>
+    <label for="price">Enter price: </label>
+    <input type="text" th:field="*{price}" id="price"/>
+    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</div>
+    <br/>
+    <label for="calories">Enter calories count: </label>
+    <input type="number" th:field="*{calories}" id="calories"/>
+    <div style="color:red" th:if="${#fields.hasErrors('calories')}" th:errors="*{calories}">Calories Error</div>
+    <br/>
+    <label for="supplier">Enter supplier: </label>
+    <input type="text" th:field="*{supplier}" id="supplier"/>
+    <div style="color:red" th:if="${#fields.hasErrors('supplier')}" th:errors="*{supplier}">Supplier Error</div>
+    <br/>
+    <label for="content">Enter content: </label>
+    <input type="text" th:field="*{content}" id="content"/>
+    <div style="color:red" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">Content Error</div>
+    <br/>
+    <input type="submit" value="Create!"/>
+    <br/>
+    <a href="/konditerka">Back</a>
+</form>
+
+</body>
+</html>
